@@ -50,7 +50,7 @@ export function buildWsUrl(pathOrUrl: string): string {
     return pathOrUrl;
   }
   const normalizedPath = pathOrUrl.startsWith('/') ? pathOrUrl : `/${pathOrUrl}`;
-  if (!isTest && typeof window !== 'undefined' && window.location && (window.location.port === '3000' || (window.location.hostname && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1'))) {
+  if (!isTest && typeof window !== 'undefined' && window.location && window.location.port === '3000') {
     const proto = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     return `${proto}//${window.location.host}${normalizedPath}`;
   }
@@ -66,8 +66,9 @@ export function resolveAssetUrl(imageUrl?: string | null, fallbackUrl: string = 
     return imageUrl;
   }
   const normalizedPath = imageUrl.startsWith('/') ? imageUrl : `/${imageUrl}`;
-  if (!isTest && typeof window !== 'undefined' && window.location && (window.location.port === '3000' || (window.location.hostname && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1'))) {
+  if (!isTest && typeof window !== 'undefined' && window.location && window.location.port === '3000') {
     return normalizedPath;
   }
   return `${API_BASE_URL}${normalizedPath}`;
 }
+

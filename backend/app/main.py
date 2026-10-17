@@ -1,5 +1,5 @@
 """Day 19 E-Commerce Application - Main FastAPI App with SlowAPI Rate Limiting, OWASP Hardening & GZip Compression."""
-
+##FastAPI app setup, CORS, GZip, OWASP headers, slowapi rate limiter.
 from contextlib import asynccontextmanager
 import csv
 import gzip

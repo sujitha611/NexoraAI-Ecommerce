@@ -1,5 +1,5 @@
 """Database configuration and session management for PostgreSQL & resilient SQLite fallback."""
-
+####Database connection engine, session factory (get_db), SQLite fallback.
 import logging
 from pathlib import Path
 import tempfile

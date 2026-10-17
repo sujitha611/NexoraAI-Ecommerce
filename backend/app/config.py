@@ -1,5 +1,5 @@
 """Day 22 AI Focus Project Configuration (RAG, Semantic Search, AI Descriptions, WebSockets, Celery AI Workers, Redis Cache & $0 Cost Governance)."""
-
+###Pydantic BaseSettings (JWT Secret, Postgres URL, Redis URL, CORS origins).
 import os
 from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict

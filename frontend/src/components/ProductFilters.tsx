@@ -98,7 +98,7 @@ const ProductFiltersBase: React.FC<ProductFiltersProps> = ({
           <Input
             id="search-input"
             type="text"
-            placeholder="Search by name, spec, or typo (e.g. iphon)..."
+            placeholder="Search by name, spec, or typo (e.g. iphon)"
             value={searchQuery}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => onSearchChange(e.target.value)}
             className="h-9 pl-8 pr-8 text-xs"

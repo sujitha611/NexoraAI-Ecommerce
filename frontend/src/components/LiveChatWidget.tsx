@@ -41,7 +41,7 @@ export const LiveChatWidget: React.FC<LiveChatWidgetProps> = ({
   const [activeRoomId, setActiveRoomId] = useState<string>(() => {
     if (initialRoomId) return initialRoomId;
     if (user && user.role !== 'admin') return String(user.id);
-    return '18'; // Default to customer1 (user_id: 18) room for Admin
+    return '2'; // Default to customer1 (user_id: 2) room for Admin on Render DB
   });
   const [rooms, setRooms] = useState<ChatRoomSummary[]>([]);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -75,6 +75,8 @@ export const LiveChatWidget: React.FC<LiveChatWidgetProps> = ({
   useEffect(() => {
     if (isAdmin && (isOpen || mode === 'embedded')) {
       fetchRooms();
+      const interval = setInterval(fetchRooms, 4000);
+      return () => clearInterval(interval);
     }
   }, [isAdmin, isOpen, mode, fetchRooms]);
 
@@ -263,9 +265,9 @@ export const LiveChatWidget: React.FC<LiveChatWidgetProps> = ({
             {(rooms.length > 0
               ? rooms
               : [
-                  { room_id: '18', customer_id: 18, customer_name: 'customer1', active_connections: 1, message_count: 1 },
-                  { room_id: '19', customer_id: 19, customer_name: 'customer2', active_connections: 0, message_count: 1 },
-                  { room_id: '20', customer_id: 20, customer_name: 'customer3', active_connections: 0, message_count: 1 },
+                  { room_id: '2', customer_id: 2, customer_name: 'customer1', active_connections: 1, message_count: 1 },
+                  { room_id: '3', customer_id: 3, customer_name: 'customer2', active_connections: 0, message_count: 1 },
+                  { room_id: '4', customer_id: 4, customer_name: 'customer3', active_connections: 0, message_count: 1 },
                 ]
             ).map((room) => (
               <button

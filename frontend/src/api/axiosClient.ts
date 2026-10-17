@@ -20,10 +20,7 @@ apiClient.interceptors.request.use(
       if (
         typeof window !== 'undefined' &&
         window.location &&
-        (window.location.port === '3000' ||
-          (window.location.hostname &&
-            window.location.hostname !== 'localhost' &&
-            window.location.hostname !== '127.0.0.1'))
+        window.location.port === '3000'
       ) {
         config.baseURL = window.location.origin;
       }

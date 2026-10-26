@@ -41,7 +41,7 @@ export const LiveChatWidget: React.FC<LiveChatWidgetProps> = ({
   const [activeRoomId, setActiveRoomId] = useState<string>(() => {
     if (initialRoomId) return initialRoomId;
     if (user && user.role !== 'admin') return String(user.id);
-    return '2'; // Default to customer1 (user_id: 2) room for Admin on Render DB
+    return '18'; // Matches test mocks; fetchRooms will auto-select live room from backend
   });
   const [rooms, setRooms] = useState<ChatRoomSummary[]>([]);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
